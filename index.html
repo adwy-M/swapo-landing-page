@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swapo | المنصة الرائدة للبيع والشراء في السعودية</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Almarai',sans-serif;scroll-behavior:smooth}
+.gradient-btn{background:linear-gradient(90deg,#3B82F6,#2563EB)}
+.target-card{transition:all .3s ease}.target-card:hover{transform:translateY(-10px)}
+#storeModal{display:none}#storeModal.active{display:flex}
+.mockup-animation{animation:float 3s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
+.whatsapp-float{position:fixed;width:60px;height:60px;bottom:30px;left:30px;background:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow:0 4px 15px rgba(0,0,0,.2);z-index:1000;display:flex;align-items:center;justify-content:center;transition:all .3s ease;animation:pulse 2s infinite}
+.whatsapp-float:hover{transform:scale(1.1);background:#128C7E}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.terms-section h3{position:relative;padding-bottom:.5rem;margin-bottom:1rem}
+.terms-section h3::after{content:'';position:absolute;bottom:0;right:0;width:50px;height:3px;background:#3B82F6;border-radius:2px}
+/* Chatbot CSS for dynamic elements */
+.chat-msg { display: flex; width: 100%; margin-bottom: 12px; }
+.chat-msg.bot { justify-content: flex-end; }
+.chat-msg.user { justify-content: flex-start; }
+.chat-bubble { max-width: 80%; padding: 10px 16px; font-size: 13px; line-height: 1.6; border-radius: 16px; }
+.bot .chat-bubble { background: #2563EB; color: #fff; border-bottom-left-radius: 4px; }
+.user .chat-bubble { background: #fff; color: #0F172A; border: 1px solid #e2e8f0; border-bottom-right-radius: 4px; }
+.chat-opt { background: #F1F5F9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .2s; }
+.chat-opt:hover { background: #2563EB; color: #fff; border-color: #2563EB; }
+#chatWindow.open { display: flex !important; }
+</style>
+</head>
+<body class="bg-white text-gray-900">
+
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+<!-- Launch Banner -->
+<div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center py-2 px-4 text-xs md:text-sm font-bold shadow-sm">
+  🎉 تم إطلاق التطبيق رسمياً الآن على Google Play و App Store! <a href="#download" onclick="showSection('main')" class="underline hover:text-blue-200 mr-2">حمل التطبيق الآن</a>
+</div>
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center"><img src="logo.png" alt="Swapo Logo" class="h-10 w-auto object-contain"></div>
+<div class="hidden md:flex space-x-reverse space-x-6 text-sm font-bold">
+<a href="#hero" onclick="showSection('main')" class="hover:text-blue-600">الرئيسية</a>
+<a href="#about" onclick="showSection('main')" class="hover:text-blue-600">عن سوابو</a>
+<a href="#features" onclick="showSection('main')" class="hover:text-blue-600">المميزات</a>
+<a href="#audience" onclick="showSection('main')" class="hover:text-blue-600">من نحن</a>
+<a href="#goals" onclick="showSection('main')" class="hover:text-blue-600">أهدافنا</a>
+<a href="#" onclick="showSection('terms');return false;" class="hover:text-blue-600">سياسة الاستخدام</a>
+</div>
+<button onclick="toggleModal()" class="gradient-btn text-white px-5 py-2 rounded-lg text-sm font-bold shadow-lg">تسجيل المتاجر</button>
+</div>
+</nav>
+
+<div id="main-content">
+
+<section id="hero" class="pt-32 pb-20 bg-gray-50 px-6">
+<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2 text-right">
+<span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block">تطبيق البيع والشراء الأول في المملكة</span>
+<h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">تجربة بيع وشراء <span class="text-blue-600">آمنة، ذكية، وسهلة</span></h1>
+<p class="text-lg text-gray-600 mb-10 leading-relaxed">Swapo هو تطبيق ومنصة إلكترونية متخصصة في بيع وشراء المنتجات الجديدة والمستعملة داخل المملكة العربية السعودية، يربط بين البائعين والمشترين بطريقة سهلة، آمنة، وذكية، مع التركيز على بناء الثقة وتقديم تجربة استخدام سلسة.</p>
+<div class="flex flex-wrap gap-4">
+<a href="https://apps.apple.com/sa/app/swapo/id6767536125?l=ar" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" class="h-12 cursor-pointer" alt="App Store"></a>
+<a href="https://play.google.com/store/apps/details?id=com.alamiya.swapo&pcampaignid=web_share" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-12 cursor-pointer" alt="Google Play"></a>
+</div>
+</div>
+<div class="md:w-1/2 flex justify-center mockup-animation relative h-[520px]">
+<div class="absolute w-56 h-[460px] bg-black rounded-[2.5rem] border-[6px] border-gray-800 shadow-xl overflow-hidden transform -translate-x-16 translate-y-8 opacity-60">
+<img src="app-product.png" class="w-full h-full object-cover" alt="Swapo App Product">
+</div>
+<div class="relative w-64 h-[520px] bg-black rounded-[3rem] border-[8px] border-gray-800 shadow-2xl overflow-hidden z-10">
+<img src="app-home.png" class="w-full h-full object-cover" alt="Swapo App Home">
+</div>
+</div>
+</div>
+</section>
+
+<section id="about" class="py-20 bg-white px-6">
+<div class="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl font-bold mb-6 border-r-4 border-blue-600 pr-4">نبذة عن Swapo</h2>
+<p class="text-gray-600 mb-6 leading-relaxed">يهدف Swapo إلى أن يكون الخيار الأول للمستخدم السعودي الراغب في البيع أو الشراء بدون تعقيد، وبأعلى مستوى من الموثوقية. نحن لسنا مجرد تطبيق، بل مجتمع موثوق.</p>
+<div class="space-y-4">
+<div class="p-4 bg-blue-50 rounded-xl"><h4 class="font-bold text-blue-900 mb-1">رؤيتنا</h4><p class="text-sm italic text-gray-700">أن نكون المنصة الرائدة في المملكة لبيع وشراء المنتجات الجديدة والمستعملة، من خلال تجربة رقمية آمنة، عصرية، ومبنية على ثقة المستخدمين.</p></div>
+<div class="p-4 bg-gray-50 rounded-xl"><h4 class="font-bold text-gray-900 mb-1">رسالتنا</h4><p class="text-sm italic text-gray-700">تمكين الأفراد من البيع والشراء بسهولة وأمان، عبر منصة ذكية تجمع بين التقنية الحديثة، الشفافية، وتجربة المستخدم الممتازة.</p></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-gray-900 text-white rounded-2xl text-center"><div class="text-2xl font-bold mb-2">الثقة</div><p class="text-xs opacity-70">قيمنا الأساسية</p></div>
+<div class="p-6 bg-blue-600 text-white rounded-2xl text-center"><div class="text-2xl font-bold mb-2">الأمان</div><p class="text-xs opacity-70">بيئة خالية من الاحتيال</p></div>
+<div class="p-6 bg-blue-400 text-white rounded-2xl text-center"><div class="text-2xl font-bold mb-2">السهولة</div><p class="text-xs opacity-70">تجربة UX حديثة</p></div>
+<div class="p-6 bg-gray-100 rounded-2xl text-center border"><div class="text-2xl font-bold mb-2 text-gray-900">الشفافية</div><p class="text-xs text-gray-500">وضوح تام في الصفقات</p></div>
+</div>
+</div>
+</section>
+
+<section id="how-it-works" class="py-20 bg-white px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16">كيف يعمل Swapo؟</h2>
+<div class="grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+<div class="p-6">
+  <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-6">1</div>
+  <h3 class="text-xl font-bold mb-3">صوّر منتجك</h3>
+  <p class="text-gray-500 text-sm">التقط صوراً واضحة للمنتج الذي تود بيعه من عدة زوايا لزيادة فرص البيع.</p>
+</div>
+<div class="p-6">
+  <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-6">2</div>
+  <h3 class="text-xl font-bold mb-3">اكتب التفاصيل</h3>
+  <p class="text-gray-500 text-sm">أضف وصفاً دقيقاً وحالته وحدد السعر المناسب لعرضه على آلاف المشترين.</p>
+</div>
+<div class="p-6">
+  <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-6">3</div>
+  <h3 class="text-xl font-bold mb-3">بِع بأمان</h3>
+  <p class="text-gray-500 text-sm">تواصل مع المشترين، اتفق على التفاصيل، واستلم أموالك بكل أمان وموثوقية.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="features" class="py-20 bg-gray-50 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16">ما الذي يميز Swapo؟</h2>
+<div class="grid md:grid-cols-5 gap-4 text-center">
+<div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-600"><div class="text-3xl mb-4">✨</div><h3 class="font-bold text-sm mb-2">تجربة UX حديثة</h3><p class="text-[10px] text-gray-400">واجهات بديهية وسهلة</p></div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-gray-900"><div class="text-3xl mb-4">🛡️</div><h3 class="font-bold text-sm mb-2">بيئة آمنة</h3><p class="text-[10px] text-gray-400">تقليل الاحتيال والمخاطر</p></div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-400"><div class="text-3xl mb-4">⚡</div><h3 class="font-bold text-sm mb-2">سرعة البيع</h3><p class="text-[10px] text-gray-400">اعرض وبع في دقائق</p></div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-gray-400"><div class="text-3xl mb-4">📦</div><h3 class="font-bold text-sm mb-2">تنوع الفئات</h3><p class="text-[10px] text-gray-400">كل ما تحتاجه في مكان واحد</p></div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-800"><div class="text-3xl mb-4">🇸🇦</div><h3 class="font-bold text-sm mb-2">للسوق السعودي</h3><p class="text-[10px] text-gray-400">مصمم للمستخدم المحلي</p></div>
+</div>
+</div>
+</section>
+
+<section id="stats" class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6">
+<div class="container mx-auto stats grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:divide-x md:divide-x-reverse divide-white/20">
+<div>
+  <div class="text-4xl md:text-5xl font-extrabold mb-2"><span class="counter" data-target="10000" data-suffix="+">0</span></div>
+  <p class="text-blue-200 text-sm font-bold">مستخدم نشط</p>
+</div>
+<div>
+  <div class="text-4xl md:text-5xl font-extrabold mb-2"><span class="counter" data-target="500" data-suffix="+">0</span></div>
+  <p class="text-blue-200 text-sm font-bold">متجر موثق</p>
+</div>
+<div>
+  <div class="text-4xl md:text-5xl font-extrabold mb-2"><span class="counter" data-target="50" data-suffix=" ألف+">0</span></div>
+  <p class="text-blue-200 text-sm font-bold">عملية ناجحة</p>
+</div>
+<div>
+  <div class="text-4xl md:text-5xl font-extrabold mb-2"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+  <p class="text-blue-200 text-sm font-bold">حماية وأمان</p>
+</div>
+</div>
+</section>
+
+<section id="categories" class="py-20 px-6">
+<div class="container mx-auto text-center">
+<h2 class="text-3xl font-bold mb-10">تنوع واسع يلبي شغفك</h2>
+<p class="text-gray-500 mb-8 max-w-2xl mx-auto">يوفر Swapo مجموعة واسعة من الفئات لتلبية احتياجات جميع المستخدمين</p>
+<div class="flex flex-wrap justify-center gap-3">
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">📱 إلكترونيات</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">🏠 أجهزة منزلية</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">👕 أزياء وملابس</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">💄 عطور وتجميل</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">🚗 مستلزمات السيارات</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">⛺ مستلزمات رحلات</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">🎮 ألعاب وهوايات</span>
+<span class="px-5 py-2 bg-gray-50 border rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition cursor-default">💻 منتجات رقمية</span>
+</div>
+</div>
+</section>
+
+<section id="audience" class="py-24 bg-gray-900 text-white px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16">لمن Swapo؟</h2>
+<div class="grid lg:grid-cols-3 gap-8">
+<div class="target-card p-10 rounded-[2.5rem] bg-blue-600 relative overflow-hidden"><h3 class="text-2xl font-extrabold mb-6">1) المشترون</h3><ul class="space-y-4 opacity-90 text-sm"><li class="flex items-center gap-2">✔ مستخدمون يبحثون عن صفقات ذكية</li><li class="flex items-center gap-2">✔ أفراد يفضلون الشراء الموثوق</li></ul></div>
+<div class="target-card p-10 rounded-[2.5rem] bg-white text-gray-900 border shadow-sm"><h3 class="text-2xl font-extrabold mb-6">2) البائعون الأفراد</h3><ul class="space-y-4 text-gray-600 text-sm"><li class="flex items-center gap-2">✔ يرغبون ببيع أغراض غير مستخدمة</li><li class="flex items-center gap-2">✔ البيع المتكرر أو الموسمي</li></ul></div>
+<div class="target-card p-10 rounded-[2.5rem] bg-blue-400 text-gray-900"><h3 class="text-2xl font-extrabold mb-6">3) المتاجر والمحترفون</h3><ul class="space-y-4 text-gray-800 text-sm"><li class="flex items-center gap-2">✔ الوصول لشريحة عملاء أكبر</li><li class="flex items-center gap-2">✔ بيع منتجات جديدة ومضمونة</li><li class="flex items-center gap-2">✔ قناة بيع إضافية رقمية</li></ul></div>
+</div>
+</div>
+</section>
+
+<section id="goals" class="py-20 bg-white px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">أهداف التطبيق</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 border rounded-2xl bg-gray-50"><h4 class="font-bold text-blue-600 mb-2">01</h4><p class="text-sm font-medium">توفير منصة موثوقة للبيع والشراء</p></div>
+<div class="p-6 border rounded-2xl bg-gray-50"><h4 class="font-bold text-blue-600 mb-2">02</h4><p class="text-sm font-medium">تقليل الاحتيال في سوق المستعمل</p></div>
+<div class="p-6 border rounded-2xl bg-gray-50"><h4 class="font-bold text-blue-600 mb-2">03</h4><p class="text-sm font-medium">بناء مجتمع نشط من المستخدمين</p></div>
+<div class="p-6 border rounded-2xl bg-gray-50"><h4 class="font-bold text-blue-600 mb-2">04</h4><p class="text-sm font-medium">دعم مفهوم الشراء الذكي</p></div>
+</div>
+</div>
+</section>
+
+<section id="testimonials" class="py-20 bg-gray-50 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16">ماذا يقول عملاؤنا؟</h2>
+<div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+  <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+  <p class="text-gray-600 text-sm leading-relaxed mb-6">"تطبيق ممتاز جداً، بعت جوالي القديم في أقل من 24 ساعة، والفلوس وصلتني لحسابي بدون أي مشاكل. تجربة آمنة ومريحة."</p>
+  <div class="font-bold text-gray-900">- أحمد س.</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+  <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+  <p class="text-gray-600 text-sm leading-relaxed mb-6">"أفضل منصة للبيع والشراء في السعودية. الواجهة سهلة جداً وفريق الدعم متجاوب. صرت أعتمد عليه في كل مشترياتي."</p>
+  <div class="font-bold text-gray-900">- نورة العتيبي</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+  <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+  <p class="text-gray-600 text-sm leading-relaxed mb-6">"فتحنا متجرنا على سوابو والمبيعات زادت بشكل ملحوظ. التطبيق يجيب لك عملاء جادين ونظام الحماية يريح البائع والمشتري."</p>
+  <div class="font-bold text-gray-900">- متجر التقنية الحديثة</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="py-20 bg-white px-6">
+<div class="container mx-auto max-w-3xl">
+<h2 class="text-3xl font-bold text-center mb-12">الأسئلة الشائعة</h2>
+<div class="space-y-4">
+<details class="group bg-gray-50 rounded-2xl border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+  <summary class="flex cursor-pointer items-center justify-between p-6 font-bold text-gray-900">
+    <span>هل تطبيق سوابو مجاني؟</span>
+    <span class="transition duration-300 group-open:-rotate-180">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+    </span>
+  </summary>
+  <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed">نعم، تحميل التطبيق والتسجيل فيه مجاني تماماً. يتم فقط احتساب رسوم رمزية عند إتمام عمليات البيع والشراء لضمان تقديم خدمة آمنة ومحمية لكلا الطرفين.</div>
+</details>
+<details class="group bg-gray-50 rounded-2xl border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+  <summary class="flex cursor-pointer items-center justify-between p-6 font-bold text-gray-900">
+    <span>كيف يضمن سوابو حقي كمشتري؟</span>
+    <span class="transition duration-300 group-open:-rotate-180">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+    </span>
+  </summary>
+  <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed">نحتفظ بالمبلغ المدفوع لدينا ولا نقوم بتحويله للبائع إلا بعد استلامك للمنتج وفحصه والتأكد من مطابقته للمواصفات المعروضة. لديك 24 ساعة لتقديم أي اعتراض.</div>
+</details>
+<details class="group bg-gray-50 rounded-2xl border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+  <summary class="flex cursor-pointer items-center justify-between p-6 font-bold text-gray-900">
+    <span>ما هي وسائل الدفع المتاحة؟</span>
+    <span class="transition duration-300 group-open:-rotate-180">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+    </span>
+  </summary>
+  <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed">ندعم مجموعة واسعة من وسائل الدفع الآمنة بما في ذلك: Apple Pay، مدى، فيزا، ماستركارد، STC Pay، بالإضافة إلى خيارات الدفع بالتقسيط عبر تمارا وتابي.</div>
+</details>
+</div>
+</div>
+</section>
+
+<section id="download" class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white px-6">
+<div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+<div class="text-center md:text-right">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">حمّل التطبيق الآن</h2>
+<p class="text-blue-100 mb-8 max-w-xl mx-auto md:mx-0 text-lg">ابدأ تجربة البيع والشراء الذكية مع سوابو. المتجر متاح الآن للتحميل المباشر.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<a href="https://apps.apple.com/sa/app/swapo/id6767536125?l=ar" target="_blank" class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-4 flex items-center gap-4 hover:bg-white/20 transition"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" class="h-10" alt="App Store"><span class="text-sm font-bold">تحميل من App Store</span></a>
+<a href="https://play.google.com/store/apps/details?id=com.alamiya.swapo&pcampaignid=web_share" target="_blank" class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-4 flex items-center gap-4 hover:bg-white/20 transition"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-10" alt="Google Play"><span class="text-sm font-bold">تحميل من Google Play</span></a>
+</div>
+</div>
+<div class="hidden md:block bg-white p-4 rounded-3xl shadow-2xl">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://swapo.sa&margin=0" alt="QR Code" class="w-40 h-40 rounded-xl">
+  <p class="text-center text-gray-800 text-sm font-bold mt-3">امسح الكود للتحميل</p>
+</div>
+</div>
+</section>
+
+</div>
+<div id="terms-content" style="display:none">
+<section class="pt-32 pb-12 bg-gray-50 px-6">
+<div class="container mx-auto max-w-4xl">
+<div class="text-center mb-10">
+<span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block">الوثائق القانونية</span>
+<h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">سياسة الاستخدام</h1>
+<button onclick="showSection('main')" class="mt-4 text-blue-600 font-bold hover:underline">← العودة للرئيسية</button>
+</div>
+<div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+
+<div class="terms-section mb-10">
+<h3 class="text-2xl font-bold text-gray-900">١. نبذة عن منصة سوابو</h3>
+<p class="text-gray-600 leading-relaxed">سوابو (Swapo) هو تطبيق ومنصة إلكترونية متخصصة في بيع وشراء المنتجات الجديدة والمستعملة داخل المملكة العربية السعودية، حيث تربط بين البائعين والمشترين بطريقة سهلة، آمنة، وذكية.</p>
+<p class="text-gray-600 leading-relaxed mt-2">تُدار منصة سوابو بواسطة مؤسسة Swapo Technologies Establishment، وهي مؤسسة مسجلة في المملكة العربية السعودية بموجب السجل التجاري رقم 7013125682.</p>
+<p class="text-gray-600 leading-relaxed mt-2">البريد الإلكتروني: info@swapo.sa</p>
+<p class="text-gray-600 leading-relaxed mt-2">تعمل المنصة كوسيط تقني يربط بين البائع والمشتري، ويتم تنفيذ ومعالجة المدفوعات عبر مزودي خدمات الدفع المعتمدين لدى المنصة.</p>
+</div>
+
+<div class="terms-section mb-10">
+<h3 class="text-2xl font-bold text-gray-900">٢. شروط الاستخدام</h3>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١ المقدمة والقبول</h4>
+<p class="text-gray-600 leading-relaxed">باستخدامك لمنصة سوابو أو تطبيقها، فإنك توافق صراحةً على جميع الشروط والأحكام الواردة في هذه الوثيقة. إذا كنت لا توافق على أي من هذه الشروط، يرجى التوقف فوراً عن استخدام المنصة.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٢ التعريفات</h4>
+<ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+<li><strong>المنصة:</strong> تطبيق وموقع سوابو (Swapo)</li>
+<li><strong>المستخدم:</strong> أي شخص أو جهة (بائع أو مشتري) تستخدم المنصة</li>
+<li><strong>الوسيط التقني:</strong> دور المنصة في تسهيل العمليات التجارية فقط</li>
+<li><strong>ادارة المدفوعات:</strong> تتم إدارة عمليات الدفع والتحويلات المتعلقة بالطلبات عبر المنصة لضمان تجربة شراء آمنة للطرفين</li>
+</ul>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٣ شروط التسجيل والأهلية</h4>
+<p class="text-gray-600 leading-relaxed">يشترط لاستخدام المنصة:</p>
+<ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+<li>ألا يقل عمر المستخدم عن 18 عاماً، أو الحصول على موافقة ولي الأمر</li>
+<li>تقديم بيانات صحيحة وكاملة</li>
+<li>الحفاظ على سرية الحساب</li>
+<li>إبلاغ المنصة عند الاشتباه بأي اختراق</li>
+<li>أن يكون المستخدم مؤهلاً قانونياً لإبرام العقود</li>
+</ul>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٤ حسابات المستخدمين</h4>
+<p class="text-gray-600 leading-relaxed">يحق لمنصة سوابو في أي وقت وبدون إشعار مسبق:</p>
+<ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+<li>تعليق أو تقييد أو إلغاء أي حساب</li>
+<li>إيقاف أي عملية مشبوهة</li>
+<li>طلب التحقق من الهوية (KYC) أو أي مستندات إضافية</li>
+</ul>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٥ نظام الدفع ومعالجة الطلبات المالية</h4>
+<p class="text-gray-600 leading-relaxed">تتم معالجة المدفوعات عبر مزودي خدمات الدفع المعتمدين لدى منصة سوابو وفق سياسات المنصة. لا يتم تحويل المبلغ للبائع إلا بعد: تأكيد المشتري استلام المنتج مطابقاً للوصف، أو انتهاء مهلة الاعتراض (24 ساعة).</p>
+<p class="text-gray-600 leading-relaxed mt-2">في حال عدم تقديم اعتراض خلال 24 ساعة: تُعتبر العملية مكتملة ويتم تحويل المبلغ للبائع تلقائياً. مدة تحويل المبالغ للبائع: من يوم إلى 7 أيام عمل.</p>
+<p class="text-gray-600 leading-relaxed mt-2">وسائل الدفع المقبولة: Apple Pay، مدى، فيزا، ماستركارد، STC Pay، تمارا، تابي</p>
+<div class="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-xl"><p class="text-yellow-800 text-sm font-bold">⚠️ تنبيه مهم: أي دفع يتم خارج المنصة لا يخضع للحماية ولا تتحمل المنصة مسؤوليته.</p></div>
+<p class="text-gray-600 leading-relaxed mt-4 font-bold">المحفظة:</p>
+<p class="text-gray-600 leading-relaxed">توفر منصة سوابو محفظة داخلية للمستخدمين يتم من خلالها إدارة أرصدة العمليات المكتملة داخل المنصة. يتم إضافة مبلغ العملية إلى محفظة البائع بعد: تأكيد المشتري استلام المنتج وسلامته أو انتهاء مهلة الاعتراض المحددة دون تقديم نزاع.</p>
+<p class="text-gray-600 leading-relaxed mt-2">يستطيع المستخدم استخدام الرصيد المتوفر في المحفظة للشراء داخل المنصة أو طلب سحب الرصيد إلى الحساب البنكي المسجل. عند طلب السحب، يلتزم المستخدم بإدخال بيانات الحساب البنكي بشكل صحيح.</p>
+<div class="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-xl"><p class="text-yellow-800 text-sm font-bold">⚠️ إخلاء مسؤولية: لا تتحمل منصة سوابو مسؤولية أي خطأ ناتج عن إدخال بيانات بنكية غير صحيحة. تتم معالجة طلبات السحب خلال مدة تقديرية تصل إلى 7 أيام عمل.</p></div>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٦ الرسوم والعمولات</h4>
+<p class="text-gray-600 leading-relaxed">يتم عرض الرسوم بوضوح قبل تأكيد الطلب. قد يشمل السعر: عمولة المنصة، رسوم الشحن، ضريبة القيمة المضافة. يحق للمنصة تعديل الرسوم مستقبلاً.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٧ الشحن والتوصيل</h4>
+<p class="text-gray-600 leading-relaxed">يتم الشحن عبر شركات شحن طرف ثالث. يلتزم البائع بشحن الطلب خلال 24 ساعة من الدفع. مدة التوصيل تقديرية وقد تصل إلى 7 أيام عمل.</p>
+<div class="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-xl"><p class="text-yellow-800 text-sm font-bold">⚠️ إخلاء مسؤولية: تعتمد عمليات الشحن على شركات شحن طرف ثالث. 📦 في حال عدم استلام الشحنة: يتم إرجاعها للبائع وقد يتم خصم رسوم الشحن.</p></div>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٨ سياسة الإلغاء</h4>
+<p class="text-gray-600 leading-relaxed">بعد شحن الطلب أو تسليمه لشركة الشحن، يتم التعامل مع أي طلب إلغاء أو اعتراض وفق سياسة النزاعات والاسترجاع الخاصة بالمنصة. تحتفظ المنصة بحق مراجعة أو إلغاء بعض الطلبات في حالات الاشتباه.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.٩ سياسة الاسترجاع</h4>
+<p class="text-gray-600 leading-relaxed">يحق للمشتري تقديم اعتراض خلال 24 ساعة من استلام المنتج. يشترط وجود سبب واضح مثل: عدم مطابقة المنتج للوصف أو وجود عيب غير مذكور.</p>
+<div class="mt-3 p-3 bg-red-50 border border-red-200 rounded-xl"><p class="text-red-800 text-sm font-bold">❌ لا تشمل سياسة الاسترجاع: المنتجات التي تم استخدامها أو تعديلها أو إتلافها بعد الاستلام.</p></div>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٠ سياسة النزاعات</h4>
+<p class="text-gray-600 leading-relaxed">يتم إيقاف معالجة مستحقات الطلب مؤقتًا حتى الانتهاء من مراجعة النزاع. تعتمد المنصة في الفصل على: محادثات التطبيق، الأدلة المقدمة، حالة الشحنة. قرارات المنصة لا تمنع اللجوء للمحاكم المختصة.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١١ مسؤوليات البائع</h4>
+<ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+<li>تقديم صور وفيديو واضح للمنتج</li>
+<li>تقديم وصف دقيق وصحيح وذكر جميع العيوب إن وجدت</li>
+<li>تقديم بيانات دقيقة لحجم ووزن المنتج والعدد المتوفر</li>
+<li>ضمان أصالة المنتج</li>
+<li>الالتزام بالشحن في الوقت المحدد</li>
+<li>عدم بيع منتجات ممنوعة</li>
+</ul>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٢ مسؤوليات المشتري</h4>
+<ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+<li>قراءة تفاصيل المنتج جيداً</li>
+<li>إدخال عنوان صحيح</li>
+<li>الدفع عبر المنصة فقط</li>
+</ul>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٣ الأنشطة والمنتجات المحظورة</h4>
+<div class="p-4 bg-red-50 border-r-4 border-red-500 rounded-l-lg">
+<p class="text-red-900 text-sm leading-relaxed">يُمنع بيع أو عرض: المخدرات والمواد المحظورة، الأسلحة، المنتجات المقلدة، المحتوى غير القانوني، أي منتج مخالف للأنظمة السعودية أو الشريعة، التبغ والمسكرات، الأجهزة الممنوعة.</p>
+</div>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٤ حدود المسؤولية</h4>
+<p class="text-gray-600 leading-relaxed">تعمل المنصة كوسيط تقني لتسهيل عمليات البيع والشراء بين المستخدمين. تبذل المنصة جهودًا معقولة للتحقق ومكافحة المخالفات، لكنها لا تضمن بشكل كامل جودة المنتجات أو تصرفات المستخدمين. الحد الأقصى لمسؤولية المنصة لا يتجاوز قيمة العملية نفسها.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٥ مكافحة الاحتيال</h4>
+<p class="text-gray-600 leading-relaxed">يحق للمنصة: إيقاف الحسابات المشبوهة، تعليق العمليات، طلب تحقق إضافي، مشاركة المعلومات مع الجهات المختصة.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٦ القوة القاهرة</h4>
+<p class="text-gray-600 leading-relaxed">قد تتأثر بعض الخدمات بظروف خارجة عن إرادة المنصة مثل: كوارث طبيعية، مشاكل تقنية، قرارات حكومية.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٧ سياسة المحتوى والكلمات المحظورة</h4>
+<p class="text-gray-600 leading-relaxed">يلتزم جميع المستخدمين باستخدام المنصة بشكل لائق وقانوني، ويُمنع: الألفاظ البذيئة، السب أو الشتم، التهديد أو الابتزاز، العنصرية، نشر روابط خارجية بهدف التحايل.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٨ سياسة التقييمات والمراجعات</h4>
+<p class="text-gray-600 leading-relaxed">توفر المنصة نظام تقييم لضمان الشفافية. يجب أن يكون التقييم مبني على تجربة حقيقية. يُمنع التقييمات الوهمية أو الابتزاز عبر التقييم.</p>
+<p class="text-gray-600 leading-relaxed mt-2">تحتفظ منصة سوابو بحق استخدام أنظمة آلية أو ذكاء اصطناعي لمراقبة المحتوى والتقييمات.</p>
+
+<h4 class="text-lg font-bold text-gray-800 mt-4">٢.١٩ تأخير التحويلات المالية</h4>
+<p class="text-gray-600 leading-relaxed">قد تخضع عمليات تحويل المبالغ للبائعين إلى جداول زمنية خاصة ببوابات الدفع. مدة التحويل (من يوم إلى 7 أيام عمل) هي مدة تقديرية وقد تزيد في بعض الحالات.</p>
+</div>
+
+<div class="terms-section mb-10">
+<h3 class="text-2xl font-bold text-gray-900">٣. سياسة الخصوصية</h3>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.١ البيانات التي نجمعها</h4>
+<p class="text-gray-600 leading-relaxed">الاسم، رقم الهاتف، البريد الإلكتروني، عنوان التوصيل، بيانات الجهاز، بيانات العمليات المالية.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٢ استخدام البيانات</h4>
+<p class="text-gray-600 leading-relaxed">تنفيذ الطلبات، تحسين الخدمة، التواصل مع المستخدم، الامتثال للأنظمة.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٣ مشاركة البيانات</h4>
+<p class="text-gray-600 leading-relaxed">قد تتم مشاركة البيانات مع: شركات الشحن، بوابات الدفع، مزودي الخدمات التقنية، الجهات الحكومية عند الطلب.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٤ حقوق المستخدم</h4>
+<p class="text-gray-600 leading-relaxed">الاطلاع على البيانات، تعديل البيانات، حذف الحساب.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٥ الحماية</h4>
+<p class="text-gray-600 leading-relaxed">تشفير SSL، أنظمة أمان متقدمة.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٦ ملفات تعريف الارتباط (Cookies)</h4>
+<p class="text-gray-600 leading-relaxed">تُستخدم لتحسين التجربة وتحليل الأداء وتخصيص المحتوى.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٣.٧ الاحتفاظ بالبيانات</h4>
+<p class="text-gray-600 leading-relaxed">يتم الاحتفاظ بالبيانات حسب الحاجة التشغيلية أو المتطلبات القانونية.</p>
+</div>
+
+<div class="terms-section mb-10">
+<h3 class="text-2xl font-bold text-gray-900">٤. سياسة التفاوض</h3>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٤.١ آلية التفاوض</h4>
+<p class="text-gray-600 leading-relaxed">يتم داخل التطبيق فقط. للبائع قبول أو رفض السومة. عند القبول يجب الدفع خلال 12 ساعة.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٤.٢ قواعد التفاوض</h4>
+<p class="text-gray-600 leading-relaxed">يمنع التفاوض خارج المنصة. يمنع تبادل أرقام التواصل. الاتفاق داخل المنصة ملزم.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٤.٣ حماية التفاوض</h4>
+<p class="text-gray-600 leading-relaxed">جميع المحادثات موثقة وتستخدم كدليل في النزاعات.</p>
+</div>
+
+<div class="terms-section mb-10">
+<h3 class="text-2xl font-bold text-gray-900">٥. أحكام عامة</h3>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٥.١ القانون الحاكم</h4>
+<p class="text-gray-600 leading-relaxed">تخضع هذه السياسة لأنظمة المملكة العربية السعودية.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٥.٢ التعديلات</h4>
+<p class="text-gray-600 leading-relaxed">يحق للمنصة تعديل الشروط في أي وقت، واستمرار الاستخدام يعني الموافقة.</p>
+<h4 class="text-lg font-bold text-gray-800 mt-4">٥.٣ الملكية الفكرية</h4>
+<p class="text-gray-600 leading-relaxed">جميع الحقوق محفوظة لمنصة سوابو، ولا يجوز نسخ أو استخدام أي جزء دون موافقة خطية مسبقة من المنصة.</p>
+</div>
+
+<div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-2xl">
+<p class="text-gray-700 text-sm font-bold">أقر بأنني قرأت جميع الشروط والسياسات وأوافق على الالتزام بها عند استخدام منصة سوابو.</p>
+</div>
+
+</div>
+</div>
+</section>
+</div>
+<footer class="bg-white border-t pt-16 pb-8 px-6">
+<div class="container mx-auto grid md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-2 text-right">
+<img src="logo.png" alt="Swapo Logo Footer" class="h-12 w-auto mb-6">
+<p class="text-gray-500 max-w-sm">Swapo ليس مجرد تطبيق بيع وشراء، بل منصة ذكية تهدف إلى تغيير تجربة المستخدم عبر الجمع بين الأمان والسهولة وبناء مجتمع موثوق.</p>
+<div class="mt-6 flex gap-3 text-xs font-bold text-blue-800"><span>ثقة</span> • <span>شفافية</span> • <span>أمان</span> • <span>سهولة</span></div>
+</div>
+<div>
+<h4 class="font-bold mb-6">روابط سريعة</h4>
+<ul class="space-y-3 text-gray-500 text-sm font-bold">
+<li><a href="#about" onclick="showSection('main')" class="hover:text-blue-600">عن التطبيق</a></li>
+<li><a href="#" onclick="showSection('terms');return false;" class="hover:text-blue-600">سياسة الاستخدام</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.alamiya.swapo&pcampaignid=web_share" target="_blank" class="hover:text-blue-600">تحميل التطبيق</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">تواصل معنا</h4>
+<ul class="space-y-3 text-gray-500 text-sm font-bold">
+<li>info@swapo.sa</li>
+<li>المملكة العربية السعودية</li>
+</ul>
+<!-- Social Media Icons -->
+<div class="flex gap-4 mt-6">
+  <a href="#" class="text-gray-400 hover:text-blue-600 transition" aria-label="Twitter">
+    <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+  </a>
+  <a href="#" class="text-gray-400 hover:text-pink-600 transition" aria-label="Instagram">
+    <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.476 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+  </a>
+  <a href="#" class="text-gray-400 hover:text-black transition" aria-label="TikTok">
+    <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v8.12c-.01 2.21-.92 4.35-2.47 5.9A8.347 8.347 0 018.17 23.95a8.47 8.47 0 01-5.69-2.07A8.38 8.38 0 01.12 16.03c-.09-2.31.6-4.63 2.01-6.42 1.34-1.72 3.3-2.83 5.43-3.15V10.6c-2.32.22-4.32 1.95-4.99 4.18-.73 2.42.06 5.16 2.01 6.82 1.92 1.63 4.79 1.98 7.02.83 2.22-1.14 3.65-3.41 3.65-5.91V.02h2.27z"/></svg>
+  </a>
+</div>
+</div>
+</div>
+<div class="text-center text-gray-400 text-xs border-t pt-8">جميع الحقوق محفوظة &copy; 2026 تطبيق Swapo | صُنع بذكاء</div>
+</footer>
+
+<div id="storeModal" class="fixed inset-0 z-[100] bg-black/60 items-center justify-center p-6">
+<div class="bg-white rounded-3xl w-full max-w-md p-8 relative shadow-2xl">
+<button onclick="toggleModal()" class="absolute top-4 left-4 text-gray-400 hover:text-black text-2xl">&times;</button>
+<h3 class="text-2xl font-extrabold mb-2 text-blue-600">تسجيل المتاجر</h3>
+<p class="text-gray-500 text-sm mb-6">كن من أوائل المنضمين لـ Swapo وسع نطاق مبيعاتك.</p>
+<form action="https://formspree.io/f/mlgpjjep" method="POST" class="space-y-4">
+<div><label class="block text-right text-xs font-bold text-gray-400 mb-1">اسم المتجر</label><input type="text" name="store_name" required class="w-full border p-3 rounded-xl outline-none focus:border-blue-600" placeholder="مثلاً: متجر سوابو للأناقة"></div>
+<div><label class="block text-right text-xs font-bold text-gray-400 mb-1">رقم التواصل</label><input type="tel" name="phone" required class="w-full border p-3 rounded-xl outline-none focus:border-blue-600" placeholder="05xxxxxxxx"></div>
+<div><label class="block text-right text-xs font-bold text-gray-400 mb-1">تصنيف المتجر</label>
+<select name="category" class="w-full border p-3 rounded-xl outline-none focus:border-blue-600">
+<option value="electronics">📱 إلكترونيات</option>
+<option value="home_appliances">🏠 أجهزة منزلية</option>
+<option value="fashion">👕 أزياء وملابس</option>
+<option value="beauty">💄 عطور وتجميل</option>
+<option value="car_accessories">🚗 مستلزمات السيارات</option>
+<option value="trips">⛺ مستلزمات رحلات</option>
+<option value="hobbies">🎮 ألعاب وهوايات</option>
+<option value="digital">💻 منتجات رقمية</option>
+</select></div>
+<input type="hidden" name="_subject" value="طلب انضمام متجر جديد - سوابو">
+<button type="submit" class="w-full gradient-btn text-white py-4 rounded-xl font-bold shadow-lg mt-4 transition hover:opacity-90">إرسال طلب الانضمام</button>
+</form>
+</div>
+</div>
+
+<a href="https://wa.me/966595900932?text=مرحباً سوابو، أرغب في الاستفسار عن خدماتكم" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+<svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.445 0 .081 5.363.079 11.971c0 2.112.552 4.175 1.599 6.01L0 24l6.149-1.613a11.817 11.817 0 005.9 1.532h.005c6.605 0 11.97-5.363 11.972-11.971a11.815 11.815 0 00-3.614-8.473"/></svg>
+</a>
+
+<!-- Chatbot Button -->
+<button onclick="toggleChat()" class="fixed bottom-[30px] right-[30px] w-[60px] h-[60px] rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white border-none cursor-pointer shadow-[0_4px_20px_rgba(37,99,235,0.4)] z-[90] flex items-center justify-center transition-all duration-300 hover:scale-110">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+</button>
+
+<!-- Chatbot Window -->
+<div id="chatWindow" class="fixed bottom-[100px] right-[30px] w-[360px] max-h-[480px] bg-white rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.15)] z-[91] hidden flex-col overflow-hidden border border-gray-200">
+<div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4 flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg">🤖</div>
+<div>
+<h4 class="text-sm font-bold m-0">مساعد سوابو الذكي</h4>
+<p class="text-[11px] opacity-80 m-0">متصل الآن ومستعد للإجابة</p>
+</div>
+<button onclick="toggleChat()" class="mr-auto bg-transparent border-none text-white text-xl cursor-pointer hover:opacity-80">&times;</button>
+</div>
+<div id="chatMsgs" class="flex-1 p-4 overflow-y-auto min-h-[250px] max-h-[300px] bg-slate-50 flex flex-col">
+<div class="chat-msg bot">
+<div class="chat-bubble">مرحباً! أنا مساعدك الذكي من سوابو. كيف يمكنني مساعدتك اليوم؟ 😊</div>
+</div>
+</div>
+<div id="chatOpts" class="flex flex-wrap gap-2 px-4 pb-3"></div>
+<div class="flex p-3 border-t border-gray-200 gap-2 bg-white">
+<input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." class="flex-1 border border-gray-200 rounded-xl px-3 py-2 outline-none text-[13px] focus:border-blue-600">
+<button onclick="sendChat()" class="bg-blue-600 hover:bg-blue-700 text-white border-none rounded-xl px-4 py-2 cursor-pointer font-bold text-[13px] transition-colors">إرسال</button>
+</div>
+</div>
+
+<script src="chatbot.js"></script>
+<script>
+function toggleModal(){document.getElementById('storeModal').classList.toggle('active')}
+function showSection(s){
+if(s==='terms'){document.getElementById('main-content').style.display='none';document.getElementById('terms-content').style.display='block';window.scrollTo(0,0)}
+else{document.getElementById('terms-content').style.display='none';document.getElementById('main-content').style.display='block'}
+}
+</script>
+</body>
+</html>

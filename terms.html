@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط الاستخدام | Swapo Terms of Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Almarai', sans-serif; scroll-behavior: smooth; }
+        .bg-swapo { background-color: #0F172A; }
+        .text-swapo { color: #3B82F6; }
+        .gradient-btn { background: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* Modal Style */
+        #storeModal { display: none; }
+        #storeModal.active { display: flex; }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .lang-switch-btn {
+            background-color: #f3f4f6;
+            color: #111827;
+            border: 1px solid #e5e7eb;
+        }
+        .lang-switch-btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        .terms-section h3 {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .terms-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3B82F6;
+            border-radius: 2px;
+        }
+        html[dir="ltr"] .terms-section h3::after {
+            right: auto;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- ARABIC VIEW -->
+<div id="view-ar" style="display: block;">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html"><img src="logo.png" alt="Swapo Logo" class="h-10 w-auto object-contain"></a>
+            </div>            
+            <div class="hidden md:flex space-x-reverse space-x-6 text-sm font-bold">
+                <a href="index.html#about" class="hover:text-blue-600">عن سوابو</a>
+                <a href="index.html#features" class="hover:text-blue-600">المميزات</a>
+                <a href="index.html#audience" class="hover:text-blue-600">من نحن</a>
+                <a href="index.html#goals" class="hover:text-blue-600">أهدافنا</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage('en')" class="lang-switch-btn px-3 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                    <span>🇬🇧</span> EN
+                </button>
+                <button onclick="toggleModal()" class="gradient-btn text-white px-5 py-2 rounded-lg text-sm font-bold shadow-lg">تسجيل المتاجر</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 bg-gray-50 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-10">
+                <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block">الوثائق القانونية</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">شروط الاستخدام</h1>
+                <p class="text-gray-500">آخر تحديث: <span id="date-ar"></span></p>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+                
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">1. مقدمة</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        مرحباً بكم في منصة Swapo. توفر هذه الشروط والأحكام الإطار القانوني لاستخدام المنصة، التي تعد وسيطاً تقنياً بين البائع والمشتري في المملكة العربية السعودية.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">2. تعريفات</h3>
+                    <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-2">
+                        <li><strong>المنصة:</strong> تطبيق وموقع Swapo.</li>
+                        <li><strong>المستخدم:</strong> أي شخص أو جهة (بائع أو مشتري) تستخدم المنصة.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">3. شروط الاستخدام</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        باستخدامك للمنصة، أنت توافق التام على جميع هذه الشروط. يشترط ألا يقل عمر المستخدم عن 18 عاماً لفتح حساب في المنصة وممارسة البيع والشراء، أو بموافقة ولي الأمر القانوني.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">4. حسابات المستخدمين</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                         أنت مسؤول بشكل كامل عن الحفاظ على سرية معلومات حسابك. يحق لمنصة Swapo تعليق، أو تقييد، أو إلغاء أي حساب ينتهك هذه الشروط، أو يسيء استخدام المنصة، أو يشتبه في قيامه بنشاط احتيالي، وذلك دون الحاجة لإنذار مسبق أو تعويض.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">5. نظام الدفع (Escrow)</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        يتم معالجة جميع المدفوعات عبر بوابات دفع إلكترونية تابعة لأطراف ثالثة (Third-party gateways). المنصة تقدم خدمة الحفظ الأمين (Escrow) حيث تحتفظ بالمبلغ المدفوع ولا يتم تحويله للبائع إلا بعد تأكيد المشتري استلام المنتج بحالة مطابقة للوصف، وفقاً للإطار الزمني المحدد في سياسة المنصة.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">6. الرسوم والعمولات</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تطبق المنصة رسوماً وعمولات على عمليات البيع الناجحة، وسيتم توضيحها للمستخدم بشكل شفاف قبل تأكيد العملية. يحق لـ Swapo تعديل هذه العمولات في أي وقت مع إشعار المستخدمين بذلك.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">7. الشحن والتوصيل</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تُقدم خدمات الشحن للمنتجات عبر شركات شحن خارجية مسجلة ومعتمدة (Third-party providers). المنصة غير مسؤولة بأي شكل من الأشكال عن تأخير، تلف، أو فقدان الشحنات؛ وتعتبر هذه مسؤولية مزود خدمة الشحن.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">8. سياسة النزاعات</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        في حال نشوب نزاع بين البائع والمشتري، تقدم منصة Swapo آلية تقنية لحل النزاعات بشكل ودي بين الطرفين. <strong>قرارات المنصة بهذا الخصوص هي قرارات تنظيمية بحتة تهدف لتوفير بيئة آمنة، وليست أحكاماً قضائية.</strong> يحق للأطراف دائماً اللجوء للمحاكم السعودية كجهة اختصاص للفصل في النزاع حسب الأنظمة.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">9. سياسة الاسترجاع</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تخضع سياسة الاسترجاع للمدة النظامية وحالة المنتج. يجب على البائعين الالتزام بضوابط وزارة التجارة المتعلقة بالاسترجاع والاستبدال. في معاملات الأفراد، يقر المشترون بقبول حالة المنتج "كما هو" بناءً على وصف البائع.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">10. حدود المسؤولية</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        منصة Swapo هي <strong>وسيط إلكتروني فقط</strong> ولا تضمن جودة المنتجات المعروضة، أو مطابقتها للوصف، أو قانونية تداولها. تقع المسؤولية الكاملة على عاتق البائع حصراً. ولا تتحمل المنصة أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام خدماتها.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10 border-r-4 border-red-500 pr-4 py-3 bg-red-50 rounded-l-lg">
+                    <h3 class="text-xl font-bold text-red-700 mb-2" style="padding-bottom:0; display:inline-block">11. الأنشطة الممنوعة والمنتجات المحظورة</h3>
+                    <p class="text-red-900 text-sm leading-relaxed mb-0">
+                        يُمنع منعاً باتاً عبر منصة Swapo عرض أو بيع أي مما يلي:<br>
+                        • المخدرات والمواد المسكرة أو الخاضعة للرقابة.<br>
+                        • الأسلحة بجميع أنواعها والذخائر.<br>
+                        • المنتجات المقلدة التي تنتهك حقوق الملكية الفكرية.<br>
+                        • المواد الإباحية والمحتوى غير القانوني.<br>
+                        • أي منتج أو خدمة تشجع على الاحتيال والنصب وتخالف أنظمة المملكة العربية السعودية.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">12. الحماية القانونية</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        جميع حقوق الملكية الفكرية، بما في ذلك العلامات التجارية والتصاميم والبرمجيات الخاصة بمنصة Swapo، محفوظة. يمنع نسخ أو استغلال أي جزء من المنصة دون إذن كتابي مسبق.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">13. التعديلات على الشروط</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        يحق للمنصة تعديل أو تحديث هذه الشروط والأحكام في أي وقت. استمرارك في استخدام المنصة بعد أي تعديلات يعتبر موافقة صريحة منك على النسخة الأحدث من الشروط.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">14. القانون الحاكم</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تخضع هذه الشروط والسياسات وتفسر وفقاً للأنظمة والقوانين المعمول بها في المملكة العربية السعودية. وفي حال نشوء أي نزاع قانوني يتعلق بهذه الشروط، يكون الاختصاص الحصري لمحاكم المملكة العربية السعودية لحله.
+                    </p>
+                </div>
+
+                <!-- Agreement Notice -->
+                <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-2xl">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                        <span class="text-gray-700 text-sm font-bold">أقر بأنني قد قرأت جميع شروط الاستخدام وفهمتها جيداً، وأوافق على الالتزام بها كافة عند استخدامي لمنصة Swapo.</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t pt-16 pb-8 px-6 text-right">
+        <div class="container mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <img src="logo.png" alt="Swapo Logo Footer" class="h-12 w-auto mb-6">
+                <p class="text-gray-500 max-w-sm">Swapo ليس مجرد تطبيق بيع وشراء، بل منصة ذكية تهدف إلى تغيير تجربة المستخدم عبر الجمع بين الأمان والسهولة وبناء مجتمع موثوق.</p>
+                <div class="mt-6 flex gap-3 text-xs font-bold text-blue-800">
+                    <span>ثقة</span> • <span>شفافية</span> • <span>أمان</span> • <span>سهولة</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">روابط سريعة</h4>
+                <ul class="space-y-3 text-gray-500 text-sm font-bold">
+                    <li><a href="index.html#about" class="hover:text-blue-600">عن التطبيق</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-600">الشروط والأحكام</a></li>
+                    <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">تواصل معنا</h4>
+                <ul class="space-y-3 text-gray-500 text-sm font-bold">
+                    <li>support@swapo.sa</li>
+                    <li>المملكة العربية السعودية</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-xs border-t pt-8">
+            جميع الحقوق محفوظة © <span id="year-ar"></span> تطبيق Swapo | صُنع بذكاء
+        </div>
+    </footer>
+</div>
+
+<!-- ENGLISH VIEW -->
+<div id="view-en" style="display: none;" dir="ltr">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html"><img src="logo.png" alt="Swapo Logo" class="h-10 w-auto object-contain"></a>
+            </div>            
+            <div class="hidden md:flex space-x-6 text-sm font-bold">
+                <a href="index.html#about" class="hover:text-blue-600">About Swapo</a>
+                <a href="index.html#features" class="hover:text-blue-600">Features</a>
+                <a href="index.html#audience" class="hover:text-blue-600">Who We Are</a>
+                <a href="index.html#goals" class="hover:text-blue-600">Our Goals</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage('ar')" class="lang-switch-btn px-3 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                    <span>🇸🇦</span> AR
+                </button>
+                <button onclick="toggleModal()" class="gradient-btn text-white px-5 py-2 rounded-lg text-sm font-bold shadow-lg">Register Store</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 bg-gray-50 px-6">
+        <div class="container mx-auto max-w-4xl text-left">
+            <div class="text-center mb-10">
+                <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block">Legal Documents</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">Terms of Service</h1>
+                <p class="text-gray-500">Last updated: <span id="date-en"></span></p>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+                
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">1. Introduction</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Welcome to Swapo. These Terms and Conditions provide the legal framework for using our platform, functioning as a technical intermediary between buyers and sellers in the Kingdom of Saudi Arabia.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">2. Definitions</h3>
+                    <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-2">
+                        <li><strong>Platform:</strong> The Swapo application and website.</li>
+                        <li><strong>User:</strong> Any individual or entity (buyer or seller) using the platform.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">3. Terms of Use</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        By using the platform, you fully agree to all these terms. You must be at least 18 years old (or have legal guardian consent) to create an account and engage in buying and selling.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">4. User Accounts</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                         You are fully responsible for maintaining the confidentiality of your account information. Swapo reserves the right to suspend, restrict, or terminate any account that violates these terms, misuses the platform, or is suspected of fraudulent activity, without prior notice or compensation.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">5. Payment System (Escrow)</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        All payments are processed through third-party electronic payment gateways. The platform provides an Escrow service, holding the paid amount which is only transferred to the seller after the buyer confirms receiving the product as described, according to the platform's specified timeframe.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">6. Fees & Commissions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The platform applies fees and commissions to successful sales, clearly disclosed to the user before confirming the transaction. Swapo reserves the right to modify these commissions at any time with notification to users.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">7. Shipping & Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Product shipping services are provided through registered third-party providers. The platform bears no responsibility for any delays, damage, or loss of shipments; this remains the liability of the shipping service provider.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">8. Dispute Policy</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        In case of a dispute between a buyer and a seller, Swapo provides a technical mechanism for amicable resolution. <strong>Platform decisions in this regard are purely regulatory aimed at ensuring a safe environment, and are NOT judicial rulings.</strong> Parties always have the right to resort to Saudi courts as the competent authority to resolve disputes.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">9. Refund Policy</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The refund policy is subject to statutory periods and product conditions. Sellers must adhere to the Ministry of Commerce regulations regarding returns and exchanges. For individual peer-to-peer transactions, buyers accept the product "as is" based on the seller's description.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">10. Limitation of Liability</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Swapo is strictly an <strong>electronic intermediary only</strong> and does not guarantee the quality of displayed products, their conformity to description, or their legal tradability. Full responsibility lies exclusively with the seller. The platform bears no direct or indirect damages resulting from its services.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10 border-l-4 border-red-500 pl-4 py-3 bg-red-50 rounded-r-lg">
+                    <h3 class="text-xl font-bold text-red-700 mb-2" style="padding-bottom:0; display:inline-block">11. Prohibited Activities</h3>
+                    <p class="text-red-900 text-sm leading-relaxed mb-0">
+                        It is strictly prohibited to list or sell any of the following on Swapo:<br>
+                        • Drugs, intoxicants, or controlled substances.<br>
+                        • Weapons of all kinds and ammunition.<br>
+                        • Counterfeit products violating intellectual property rights.<br>
+                        • Pornography and illegal content.<br>
+                        • Any product or service that encourages fraud and contradicts the laws of Saudi Arabia.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">12. Legal Protection</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        All intellectual property rights, including trademarks, designs, and software belonging to Swapo, are reserved. Copying or exploiting any part of the platform without prior written permission is prohibited.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">13. Modifications</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The platform reserves the right to modify or update these terms and conditions at any time. Your continued use of the platform following any modifications constitutes your explicit acceptance of the latest version of the terms.
+                    </p>
+                </div>
+
+                <div class="terms-section mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900">14. Governing Law</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        These terms and policies are governed by and construed in accordance with the laws and regulations in force in the Kingdom of Saudi Arabia. In the event of any legal dispute relating to these terms, exclusive jurisdiction shall belong to the courts of Saudi Arabia.
+                    </p>
+                </div>
+
+                <!-- Agreement Notice -->
+                <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-2xl">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                        <span class="text-gray-700 text-sm font-bold">I declare that I have read and fully understood all the terms of use, and I agree to abide by them completely when using the Swapo platform.</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t pt-16 pb-8 px-6 text-left">
+        <div class="container mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <img src="logo.png" alt="Swapo Logo Footer" class="h-12 w-auto mb-6">
+                <p class="text-gray-500 max-w-sm">Swapo is not just a buying and selling app, but a smart platform designed to transform the user experience by combining security and ease to build a trusted community.</p>
+                <div class="mt-6 flex gap-3 text-xs font-bold text-blue-800">
+                    <span>Trust</span> • <span>Transparency</span> • <span>Security</span> • <span>Simplicity</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-500 text-sm font-bold">
+                    <li><a href="index.html#about" class="hover:text-blue-600">About App</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-600">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Contact Us</h4>
+                <ul class="space-y-3 text-gray-500 text-sm font-bold">
+                    <li>support@swapo.sa</li>
+                    <li>Kingdom of Saudi Arabia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-xs border-t pt-8">
+            All rights reserved © <span id="year-en"></span> Swapo App | Smartly Crafted
+        </div>
+    </footer>
+</div>
+
+<!-- Modal from index.html (Shared) -->
+<div id="storeModal" class="fixed inset-0 z-[100] bg-black/60 items-center justify-center p-6">
+    <div class="bg-white rounded-3xl w-full max-w-md p-8 relative shadow-2xl" id="modal-content" dir="rtl">
+        <button onclick="toggleModal()" class="absolute top-4 left-4 text-gray-400 hover:text-black text-2xl" id="modal-close-btn">&times;</button>
+        <h3 class="text-2xl font-extrabold mb-2 text-blue-600" id="modal-title">تسجيل المتاجر</h3>
+        <p class="text-gray-500 text-sm mb-6" id="modal-desc">كن من أوائل المنضمين لـ Swapo وسع نطاق مبيعاتك.</p>
+        <form action="https://formspree.io/f/mlgpjjep" method="POST" class="space-y-4">
+            
+            <div>
+                <label id="modal-lbl-1" class="block text-right text-xs font-bold text-gray-400 mb-1">اسم المتجر</label>
+                <input id="modal-inp-1" type="text" name="store_name" required class="w-full border p-3 rounded-xl outline-none focus:border-blue-600" placeholder="مثلاً: متجر سوابو للأناقة">
+            </div>
+
+            <div>
+                <label id="modal-lbl-2" class="block text-right text-xs font-bold text-gray-400 mb-1">رقم التواصل</label>
+                <input id="modal-inp-2" type="tel" name="phone" required class="w-full border p-3 rounded-xl outline-none focus:border-blue-600" placeholder="05xxxxxxxx">
+            </div>
+
+            <div>
+                <label id="modal-lbl-3" class="block text-right text-xs font-bold text-gray-400 mb-1">تصنيف المتجر</label>
+                <select id="modal-sel" name="category" class="w-full border p-3 rounded-xl outline-none focus:border-blue-600">
+                    <option value="electronics">📱 إلكترونيات</option>
+                    <option value="home_appliances">🏠 أجهزة منزلية</option>
+                    <option value="fashion">👕 أزياء وملابس</option>
+                    <option value="beauty">💄 عطور وتجميل</option>
+                    <option value="car_accessories">🚗 مستلزمات السيارات</option>
+                    <option value="trips">⛺ مستلزمات رحلات</option>
+                    <option value="hobbies">🎮 ألعاب وهوايات</option>
+                    <option value="digital">💻 منتجات رقمية</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="_subject" value="طلب انضمام متجر جديد - سوابو">
+
+            <button id="modal-submit" type="submit" class="w-full gradient-btn text-white py-4 rounded-xl font-bold shadow-lg mt-4 transition hover:opacity-90">
+                إرسال طلب الانضمام
+            </button>
+        </form>        
+    </div>
+</div>
+
+<a href="https://wa.me/966595900932" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.445 0 .081 5.363.079 11.971c0 2.112.552 4.175 1.599 6.01L0 24l6.149-1.613a11.817 11.817 0 005.9 1.532h.005c6.605 0 11.97-5.363 11.972-11.971a11.815 11.815 0 00-3.614-8.473"/>
+    </svg>
+</a>
+
+<script>
+    function toggleModal() {
+        const modal = document.getElementById('storeModal');
+        modal.classList.toggle('active');
+    }
+
+    function toggleLanguage(lang) {
+        document.documentElement.lang = lang;
+        if (lang === 'en') {
+            document.documentElement.dir = 'ltr';
+            document.title = 'Terms of Service | Swapo';
+            document.getElementById('view-ar').style.display = 'none';
+            document.getElementById('view-en').style.display = 'block';
+            
+            // Adjust modal for English
+            document.getElementById('modal-content').dir = 'ltr';
+            document.getElementById('modal-close-btn').className = 'absolute top-4 right-4 text-gray-400 hover:text-black text-2xl';
+            document.getElementById('modal-lbl-1').className = 'block text-left text-xs font-bold text-gray-400 mb-1';
+            document.getElementById('modal-lbl-2').className = 'block text-left text-xs font-bold text-gray-400 mb-1';
+            document.getElementById('modal-lbl-3').className = 'block text-left text-xs font-bold text-gray-400 mb-1';
+            
+            document.getElementById('modal-title').textContent = 'Register Store';
+            document.getElementById('modal-desc').textContent = 'Be among the first to join Swapo and expand your sales.';
+            document.getElementById('modal-inp-1').placeholder = 'e.g. Swapo Style Store';
+            document.getElementById('modal-lbl-1').textContent = 'Store Name';
+            document.getElementById('modal-lbl-2').textContent = 'Contact Number';
+            document.getElementById('modal-lbl-3').textContent = 'Store Category';
+            document.getElementById('modal-submit').textContent = 'Submit Request';
+            
+            // Update select options
+            const sel = document.getElementById('modal-sel');
+            sel.options[0].text = '📱 Electronics';
+            sel.options[1].text = '🏠 Home Appliances';
+            sel.options[2].text = '👕 Fashion & Clothing';
+            sel.options[3].text = '💄 Perfumes & Beauty';
+            sel.options[4].text = '🚗 Car Accessories';
+            sel.options[5].text = '⛺ Camping Gear';
+            sel.options[6].text = '🎮 Games & Hobbies';
+            sel.options[7].text = '💻 Digital Products';
+        } else {
+            document.documentElement.dir = 'rtl';
+            document.title = 'شروط الاستخدام | Swapo Terms of Service';
+            document.getElementById('view-en').style.display = 'none';
+            document.getElementById('view-ar').style.display = 'block';
+            
+            // Adjust modal for Arabic
+            document.getElementById('modal-content').dir = 'rtl';
+            document.getElementById('modal-close-btn').className = 'absolute top-4 left-4 text-gray-400 hover:text-black text-2xl';
+            document.getElementById('modal-lbl-1').className = 'block text-right text-xs font-bold text-gray-400 mb-1';
+            document.getElementById('modal-lbl-2').className = 'block text-right text-xs font-bold text-gray-400 mb-1';
+            document.getElementById('modal-lbl-3').className = 'block text-right text-xs font-bold text-gray-400 mb-1';
+            
+            document.getElementById('modal-title').textContent = 'تسجيل المتاجر';
+            document.getElementById('modal-desc').textContent = 'كن من أوائل المنضمين لـ Swapo وسع نطاق مبيعاتك.';
+            document.getElementById('modal-inp-1').placeholder = 'مثلاً: متجر سوابو للأناقة';
+            document.getElementById('modal-lbl-1').textContent = 'اسم المتجر';
+            document.getElementById('modal-lbl-2').textContent = 'رقم التواصل';
+            document.getElementById('modal-lbl-3').textContent = 'تصنيف المتجر';
+            document.getElementById('modal-submit').textContent = 'إرسال طلب الانضمام';
+            
+            // Update select options
+            const sel = document.getElementById('modal-sel');
+            sel.options[0].text = '📱 إلكترونيات';
+            sel.options[1].text = '🏠 أجهزة منزلية';
+            sel.options[2].text = '👕 أزياء وملابس';
+            sel.options[3].text = '💄 عطور وتجميل';
+            sel.options[4].text = '🚗 مستلزمات السيارات';
+            sel.options[5].text = '⛺ مستلزمات رحلات';
+            sel.options[6].text = '🎮 ألعاب وهوايات';
+            sel.options[7].text = '💻 منتجات رقمية';
+        }
+    }
+
+    // Set dynamic dates
+    const dateObj = new Date();
+    const optionsEn = { year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsAr = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date-en').textContent = dateObj.toLocaleDateString('en-US', optionsEn);
+    document.getElementById('date-ar').textContent = dateObj.toLocaleDateString('ar-EG', optionsAr);
+    document.getElementById('year-ar').textContent = dateObj.getFullYear();
+    document.getElementById('year-en').textContent = dateObj.getFullYear();
+</script>
+
+</body>
+</html>
